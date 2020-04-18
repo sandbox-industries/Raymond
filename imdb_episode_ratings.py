@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 # Input show title to find the imdb id
 
 # Variables
-show = 'Friends'
+show = 'Doctor Who'
 url_search = 'https://www.imdb.com/find?q='
 
 # Set up Dataframe to create Heatmap
@@ -30,9 +30,9 @@ r_search = requests.get(url_search)
 soup_search = BeautifulSoup(r_search.text, 'html.parser')
 
 # Get the imdb id
-results_search = soup_search.find('tr', attrs={'class': 'findResult odd'})
-imdb_id = results_search.find('a')['href'].split('/')[2]
-show = results_search.find_all('a')[1].text
+content_search = soup_search.find('tr', attrs={'class': 'findResult odd'})
+imdb_id = content_search.find('a')['href'].split('/')[2]
+show = content_search.find_all('a')[1].text
 print('title:' + show)
 print('imdb_id:' + imdb_id)
 
@@ -43,8 +43,8 @@ r_home = requests.get('https://www.imdb.com/title/' + imdb_id)
 soup_home = BeautifulSoup(r_home.text, 'html.parser')
 
 # find the latest season available
-results_home = soup_home.find('div', attrs={'class': 'seasons-and-year-nav'})
-max_season = int(results_home.find('a').text)
+content_home = soup_home.find('div', attrs={'class': 'seasons-and-year-nav'})
+max_season = int(content_home.find('a').text)
 print('seasons:' + str(max_season))
 
 # Find the ratings for episodes in each season
