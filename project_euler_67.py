@@ -8,10 +8,7 @@ for i in range(len(data)):
 
 # Find the max path
 for i in reversed(range(len(data) - 1)):  # iter 98-0
-    # print(i)
-
     for j in range(len(data[i])):  # iter 0-(length of each line)
-        # print(j)
         data[i][j] += max(data[i + 1][j], data[i + 1][j + 1])
 
 print(data[0])
