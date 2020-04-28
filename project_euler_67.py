@@ -1,5 +1,5 @@
 # Read in the data
-with open('p067_triangle.txt', 'r') as file:  # Project Euler 67. File contains 100 rows
+with open('p067_triangle.txt', 'r') as file:  # File contains 100 rows
     data = file.readlines()
 
 # Condition the Data
