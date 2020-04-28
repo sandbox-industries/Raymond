@@ -2,7 +2,7 @@
 with open('p067_triangle.txt', 'r') as file:  # File contains 100 rows
     data = file.readlines()
 
-# Condition the Data
+# Condition the data
 for i in range(len(data)):
     data[i] = list(map(int, data[i].split(' ')))
 
